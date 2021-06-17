@@ -4,11 +4,7 @@ export class EventEmitter {
         this._listeners = new Map();
     }
 
-    /**
-     * 指定したイベントが実行されたときに呼び出されるリスナー関数を登録する
-     * @param {string} type イベント名
-     * @param {Function} listener イベントリスナー
-     */
+    // 指定したイベントが実行されたときに呼び出されるリスナー関数を登録する
     addEventListener(type, listener) {
         // 指定したイベントに対応するSetを作成しリスナー関数を登録する
         if (!this._listeners.has(type)) {
@@ -17,10 +13,9 @@ export class EventEmitter {
         const listenerSet = this._listeners.get(type);
         listenerSet.add(listener);
     }
-    /**
-     * 指定したイベントをディスパッチする
-     * @param {string} type イベント名
-     */
+    
+     // 指定したイベントをディスパッチする
+     
      emit(type) {
         // 指定したイベントに対応するSetを取り出し、すべてのリスナー関数を呼び出す
         const listenerSet = this._listeners.get(type);
@@ -32,11 +27,9 @@ export class EventEmitter {
         });
     }
 
-    /**
-     * 指定したイベントのイベントリスナーを解除する
-     * @param {string} type イベント名
-     * @param {Function} listener イベントリスナー
-     */
+    
+     // 指定したイベントのイベントリスナーを解除する
+    
     removeEventListener(type, listener) {
         // 指定したイベントに対応するSetを取り出し、該当するリスナー関数を削除する
         const listenerSet = this._listeners.get(type);
