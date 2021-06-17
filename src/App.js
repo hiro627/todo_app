@@ -9,26 +9,20 @@ export class App {
         this.todoListModel = new TodoListModel([]);
     }
 
-    /**
-     * Todoを追加するときに呼ばれるリスナー関数
-     * @param {string} title
-     */
+   
+     // Todoを追加するときに呼ばれるリスナー関数
     handleAdd(title) {
         this.todoListModel.addTodo(new TodoItemModel({ title, completed: false }));
     }
 
-    /**
-     * Todoの状態を更新したときに呼ばれるリスナー関数
-     * @param {{ id:number, completed: boolean }}
-     */
+    
+     //Todoの状態を更新したときに呼ばれるリスナー関数
     handleUpdate({ id, completed }) {
         this.todoListModel.updateTodo({ id, completed });
     }
 
-    /**
-     * Todoを削除したときに呼ばれるリスナー関数
-     * @param {{ id: number }}
-     */
+    
+     // Todoを削除したときに呼ばれるリスナー関数
     handleDelete({ id }) {
         this.todoListModel.deleteTodo({ id });
     }
